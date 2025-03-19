@@ -7,4 +7,5 @@ LABEL org.opencontainers.image.description="python 3 http.server run in a contai
 EXPOSE 8000
 WORKDIR /serve
 
-ENTRYPOINT python3 -m http.server 8000
+# pass -u for unbuffered output so stdout works
+ENTRYPOINT [ "python3", "-u", "-m", "http.server", "8000" ]

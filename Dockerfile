@@ -1,12 +1,10 @@
-FROM alpine:latest
+FROM python:3-alpine
 
-LABEL maintainer="jdkelley.oss@gmail.com"
+LABEL org.opencontainers.image.authors="jdkelley.oss@gmail.com,audrey@visleafs.me"
+LABEL org.opencontainers.image.title="simple http server"
+LABEL org.opencontainers.image.description="python 3 http.server run in a container"
 
 EXPOSE 8000
 WORKDIR /serve
 
-RUN apk --no-cache -U add python3 && \
-    apk upgrade --no-cache -U -a  
-# Patch OpenSSL vulnerability^
-
-ENTRYPOINT [ "python3", "-m", "http.server", "8000" ]
+ENTRYPOINT "python3 -m http.server -b 0.0.0.0 8000"

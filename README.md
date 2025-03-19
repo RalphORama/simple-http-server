@@ -12,7 +12,7 @@ To serve files, stand the server up with this docker command. Make sure you map 
 docker run --rm \
     -v <directory-to-serve>:/serve \
     -p 80:8000 \
-    jdkelley/simple-http-server:latest
+    ghcr.io/ralphorama/simple-http-server:latest
 ```
 
 To serve your current directory, use:
@@ -21,7 +21,7 @@ To serve your current directory, use:
 docker run --rm \
     -v $(pwd):/serve \
     -p 80:8000 \
-    jdkelley/simple-http-server:latest
+    ghcr.io/ralphorama/simple-http-server:latest
 ```
 
 I find it useful to add a bash function to my profile to avoid typing that all out:
@@ -31,7 +31,7 @@ simple-http-server() {
     docker run --rm \
         -v $(pwd):/serve \
         -p 80:8000 \
-        jdkelley/simple-http-server:latest
+        ghcr.io/ralphorama/simple-http-server:latest
 }
 ```
 
@@ -54,7 +54,7 @@ The source can be found on [GitHub.][4]
 [//]: # "LINKS"
 
 [1]: https://docs.python.org/3.7/library/http.server.html#module-http.server     "http.server"
-[2]: https://github.com/jdkelley/simple-http-server/packages/37410 "jdkelley/simple-http-server GitHub Packages"
-[3]: https://hub.docker.com/r/jdkelley/simple-http-server "jdkelley/simple-http-server on Docker Hub"
-[4]: https://github.com/jdkelley/simple-http-server "jdkelley/simple-http-server on GitHub" 
+[2]: https://github.com/ghcr.io/ralphorama/simple-http-server/packages/37410 "ghcr.io/ralphorama/simple-http-server GitHub Packages"
+[3]: https://github.com/RalphORama/simple-http-server/pkgs/container/simple-http-server "ghcr.io/ralphorama/simple-http-server on GitHub Container Registry"
+[4]: https://github.com/ralphorama/simple-http-server "ghcr.io/ralphorama/simple-http-server on GitHub" 
 [5]: example/bash_functions.sh "Example bash function to push in profile"

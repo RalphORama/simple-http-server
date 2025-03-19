@@ -7,4 +7,4 @@ LABEL org.opencontainers.image.description="python 3 http.server run in a contai
 EXPOSE 8000
 WORKDIR /serve
 
-ENTRYPOINT "python3 -m http.server -b 0.0.0.0 8000"
+ENTRYPOINT python3 -m http.server 8000

@@ -15,6 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # build-push-action doesn't like uppercase characters in the repo name
+      # https://github.com/orgs/community/discussions/10553#discussioncomment-7270402
+      - id: lower-repo
+        run: |
+          echo "repository=${GITHUB_REPOSITORY@L}" >> $GITHUB_OUTPUT
+
       - uses: docker/setup-qemu-action@v3
 
       - uses: docker/setup-buildx-action@v3
@@ -33,7 +39,7 @@ jobs:
           platforms: "linux/arm64,linux/amd64"
           push: true
           # could probably push a date tag since we run on cron too
-          tags: "ghcr.io/${{ github.repository }}:latest"
+          tags: "ghcr.io/${{ steps.lower-repo.outputs.repository }}:latest"
           cache-from: type=gha
           cache-to: type=gha,mode=max
         
